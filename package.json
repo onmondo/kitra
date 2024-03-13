@@ -1,0 +1,16 @@
+{
+  "name": "kitra",
+  "version": "1.0.0",
+  "description": "Kitra is a game where users can collect treasures in a given latitude and longitude. Every treasure that is collected will have points based on the monetary value. A treasure may have more than one money value, it depends on the user’s luck. Kitra users may get the highest money from the treasure that has been collected.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "game",
+    "treasure",
+    "hunt"
+  ],
+  "author": "John Raymond Blando",
+  "license": "ISC"
+}
