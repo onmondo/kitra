@@ -9,6 +9,8 @@ app.use(express.json());
 
 app.use(cors());
 
+app.set("query parser", false);
+
 app.get('/api/v1/health', (req: Request, res: Response) => {
     return res.json({
         message: "Up and running..."
