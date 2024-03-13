@@ -1,0 +1,26 @@
+-- Seed Money_Values
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (100, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (101, 10);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (102, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (103, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (104, 10);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (105, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (106, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (107, 10);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (108, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (109, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (110, 10);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (111, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (112, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (113, 10);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (114, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (115, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (116, 10);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (117, 15);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (100, 20);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (101, 25);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (102, 20);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (103, 25);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (107, 30);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (108, 30);
+INSERT INTO kitra.`Money_Value` (`treasure_id`, `amt`) VALUES (109, 30);
