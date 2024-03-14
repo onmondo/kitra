@@ -6,6 +6,8 @@
   "scripts": {
     "seed": "ts-node ./src/migrations/migrate.ts && ts-node ./src/migrations/seed.ts",
     "dev": "ts-node-dev --poll src/app.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

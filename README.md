@@ -17,3 +17,12 @@ docker-compose up -d
 npm run seed
 ```
 
+4. And finally, serve up the resources by issuing the command
+```bash
+npm run dev
+```
+
+(optional) 5. You can also build the app for deployment purposes by issuing the command
+```bash
+npm run build
+```
