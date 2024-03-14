@@ -8,5 +8,5 @@ export type TCoordinates = {
 export type TTreasureValidation = {
     coordinates: string;
     distance: number;
-    prize?: number;
+    prize?: string;
 }

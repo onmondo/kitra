@@ -17,7 +17,6 @@ export class TreasureMap {
                     console.error('Error executing SQL query:', err);
                     reject(err);
                 }
-                // console.log('SQL query executed successfully:', results);
     
                 resolve(results);
             });
@@ -37,7 +36,7 @@ export class TreasureMap {
                 LEFT JOIN
             kitra.Money_Value tm ON t.id = tm.treasure_id
         WHERE
-            tm.amt BETWEEN 0 AND ?;`;
+            tm.amt BETWEEN 10 AND ?;`;
 
         const result = new Promise((resolve, reject) => {
             pool.query(sqlQuery, [this.prize], (err, results, fields) => {
