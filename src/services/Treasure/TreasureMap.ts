@@ -52,4 +52,23 @@ export class TreasureMap {
 
         return result;
     }
+
+    getTreasureBoxesById(id: string) {
+        const mysqlClient = MySQLClient.getInstance()
+        const pool = mysqlClient.getConnectionPool();
+        const sqlQuery = `select * from kitra.Treasure where id = ?;`;
+        const result = new Promise((resolve, reject) => {
+            pool.query(sqlQuery, [id], (err, results, fields) => {
+                if (err) {
+                    console.error('Error executing SQL query:', err);
+                    reject(err);
+                }
+                // console.log('SQL query executed successfully:', results);
+
+                resolve(results);
+            });
+        })
+
+        return result;
+    }
 }

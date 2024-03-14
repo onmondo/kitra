@@ -12,6 +12,10 @@ const findTreasureBoxesSchema = Joi.object({
     prize: Joi.string().pattern(new RegExp(/\b(?:1[0-9]|2[0-9]|30)\b/)).length(2).optional()
 })
 
+const findTreasureBoxSchema = Joi.object({
+    id: Joi.number().integer().required(),
+})
+
 export const validate: RequestHandler = 
     (req: Request, res: Response, next: NextFunction) => {
         const coordinates: string = req.params.coordinates;
@@ -37,4 +41,25 @@ export const validate: RequestHandler =
         }
 
         next();
-    };  
+    };
+
+export const validateId: RequestHandler = 
+    (req: Request, res: Response, next: NextFunction) => {
+        const id: string = req.params.id;
+
+        const huntValidation = new HuntValidation.HuntValidationBuilder();
+        huntValidation.setId(id);
+
+        const validationRequest = huntValidation.build();
+    
+        const validationResult = findTreasureBoxSchema.validate({ id: validationRequest.getTreasureValidation().id});
+
+        if (validationResult.error) {
+            return res.status(400)
+                .json({
+                    message: validationResult.error.details[0].message
+                })
+        }
+
+        next();
+    };        

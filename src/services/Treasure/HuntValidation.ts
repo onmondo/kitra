@@ -2,6 +2,7 @@ import { TTreasureValidation } from "./types";
 
 export default class HuntValidation {
     private specs: {
+        id?: string,
         coordinates: string;
         distance: number;
         prize?: string;
@@ -17,6 +18,7 @@ export default class HuntValidation {
 
     public static HuntValidationBuilder = class HuntValidationBuilder {
         private specs: {
+            id?: string,
             coordinates: string;
             distance: number;
             prize?: string;
@@ -29,6 +31,11 @@ export default class HuntValidation {
             }
         }
 
+        setId(id: string): HuntValidationBuilder {
+            this.specs.id = id;
+            return this;
+        }
+        
         setCoordinates(coordinates: string): HuntValidationBuilder {
             this.specs.coordinates = coordinates;
             return this;

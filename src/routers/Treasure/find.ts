@@ -3,6 +3,7 @@ import { isEmpty } from "lodash";
 import TreasureHunter from "../../services/Treasure/TreasureHunter";
 import BountyHunter from "../../services/Treasure/BountyHunter";
 import { Hunter } from "../../services/Treasure/Hunter";
+import { TreasureMap } from "../../services/Treasure/TreasureMap";
 
 export const findTreasureBoxes: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -15,6 +16,33 @@ export const findTreasureBoxes: RequestHandler = async (req: Request, res: Respo
             ? new BountyHunter(coordinates, parseInt(prize))
             : new TreasureHunter(coordinates);
         const treasureBoxes = await treasureHunder.hunt(range);
+        
+        if (isEmpty(treasureBoxes)) {
+            res.json({
+                message: "Sorry no treasure box available...",
+                treasureBoxes
+            });
+        } else {
+            res.json({
+                message: "Treasure boxes found!",
+                treasureBoxes
+            });
+        }
+    } catch(error: any) {
+        const errorDetails = error as Error;
+        res.status(500).json({
+            message: 'Internal Server Error',
+            error: errorDetails.message
+        });
+    }
+}
+
+export const findTreasureBoxeById: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const id: string = req.params.id;
+
+        const treasureMap = new TreasureMap();
+        const treasureBoxes = await treasureMap.getTreasureBoxesById(id);
         
         if (isEmpty(treasureBoxes)) {
             res.json({
