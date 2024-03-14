@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction, RequestHandler } from "express";
 import Joi from "joi";
-import { TTreasureValidation } from "../../services/Treasure/types";
+// import { TTreasureValidation } from "../../services/Treasure/types";
 import HuntValidation from "../../services/Treasure/HuntValidation";
 import { isEmpty } from "lodash";
 
@@ -26,7 +26,6 @@ export const validate: RequestHandler =
             huntValidation.setPrize(prize)
         }
 
-        console.log(huntValidation)
         const validationRequest = huntValidation.build();
         const validationResult = findTreasureBoxesSchema.validate(validationRequest.getTreasureValidation());
 

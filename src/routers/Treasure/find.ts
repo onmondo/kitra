@@ -28,6 +28,10 @@ export const findTreasureBoxes: RequestHandler = async (req: Request, res: Respo
             });
         }
     } catch(error: any) {
-        console.log(error);
+        const errorDetails = error as Error;
+        res.status(500).json({
+            message: 'Internal Server Error',
+            error: errorDetails.message
+        });
     }
 }

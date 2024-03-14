@@ -1,8 +1,9 @@
 require('dotenv').config();
 import express, { NextFunction, Request, Response } from "express";
 import treasureRoute from "./routers/Treasure"
+import userRoute from "./routers/User"
 import cors from 'cors';
-import { envKeys } from './util/config';
+// import { envKeys } from './util/config';
 
 const app = express()
 app.use(express.json());
@@ -18,6 +19,7 @@ app.get('/api/v1/health', (req: Request, res: Response) => {
 });
 
 app.use('/api/v1/treasure', treasureRoute);
+app.use('/api/v1/user', userRoute);
 
 app.all('*', (req: Request, res: Response, next: NextFunction) => {
     const err = new Error(`Cannot find ${req.originalUrl} on this server!`);
