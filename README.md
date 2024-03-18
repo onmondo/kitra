@@ -12,7 +12,18 @@ npm install
 docker-compose up -d
 ```
 
-### Third, you need to execute this command to seed your db tables.
+### Third, you need to setup the environment variable. 
+Please create a new `.env` file at the root directory of the project and copy paste the following key value pairs.
+```bash
+ENV=LOCAL
+PORT=3000
+LCL_MYSQL_DB_HOST=localhost:3306
+LCL_MYSQL_DB_USERNAME=root
+LCL_MYSQL_DB_PASSWORD=root
+LCL_MYSQL_DB_NAME=kitra
+```
+
+### Next, you need to execute this command to seed your db tables.
 ```bash
 npm run seed
 ```
