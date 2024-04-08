@@ -3,9 +3,17 @@ import express, { NextFunction, Request, Response } from "express";
 import treasureRoute from "./routers/Treasure"
 import userRoute from "./routers/User"
 import cors from 'cors';
-// import { envKeys } from './util/config';
+import WinstonLogger from "./util/WinstonLogger";
+import WinstonErrorLogger from "./util/WinstonErrorLogger";
 
-const app = express()
+export const app = express()
+const winstonLogger = WinstonLogger.getInstance()
+const logger = winstonLogger.getLogger();
+const winstErrorLogger = WinstonErrorLogger.getInstance()
+const errorLogger = winstErrorLogger.getLogger();
+
+app.use(logger)
+app.use(errorLogger)
 app.use(express.json());
 
 app.use(cors());
@@ -28,5 +36,3 @@ app.all('*', (req: Request, res: Response, next: NextFunction) => {
     res.render('error', { error: err })
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`listening on port ${port}`))

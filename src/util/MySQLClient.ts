@@ -17,7 +17,6 @@ export class MySQLClient {
             MYSQL_DB_PASSWORD,
             MYSQL_DB_NAME
         } = envKeys();
-
         const connectionOptions: PoolOptions = {
             connectionLimit: 10, // Maximum number of connections in the pool
             host: MYSQL_DB_HOST,
