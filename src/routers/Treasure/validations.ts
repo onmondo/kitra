@@ -4,9 +4,8 @@ import Joi from "joi";
 import HuntValidation from "../../services/Treasure/HuntValidation";
 import { isEmpty } from "lodash";
 
-const regex = new RegExp(/^((\-?|\+?)?\d+(\.\d+)?),\s*((\-?|\+?)?\d+(\.\d+)?)$/);
 const findTreasureBoxesSchema = Joi.object({
-    coordinates: Joi.string().pattern(regex).required(),
+    coordinates: Joi.string().pattern(new RegExp(/^((\-?|\+?)?\d+(\.\d+)?),\s*((\-?|\+?)?\d+(\.\d+)?)$/)).required(),
     distance: Joi.number().valid(1, 10).required(),
     // prize: Joi.number().integer().min(10).max(30).optional(),
     prize: Joi.string().pattern(new RegExp(/\b(?:1[0-9]|2[0-9]|30)\b/)).length(2).optional()

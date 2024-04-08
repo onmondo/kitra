@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { findTreasureBoxeById, findTreasureBoxes } from "./find";
+import { v1, v2 } from "./find";
 import { validate, validateId } from "./validations";
 
 const router = Router();
-router.get("/:coordinates/:range", validate, findTreasureBoxes);
+router.get("/:coordinates/:range", validate, v2.findTreasureBoxes);
 
-router.get("/:id", validateId, findTreasureBoxeById);
+router.get("/:id", validateId, v1.findTreasureBoxeById);
 
 export default router;

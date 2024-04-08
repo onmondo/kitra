@@ -5,8 +5,17 @@ import { GeolibInputCoordinates } from "geolib/es/types";
 import { intersectionWith, isEqual } from "lodash";
 import { Hunter } from "./Hunter";
 import IFindingTreasure from "./IFindingTreasure";
+import { Query } from "mysql2";
 
 export default class BountyHunter extends Hunter {
+    protected keenFindTreasure(findParam: IFindingTreasure): Query {
+        const treasuremap = new TreasureMap();
+        if(findParam.reportParam?.page) treasuremap.setPage(findParam.reportParam?.page)
+        if(findParam.reportParam?.limit) treasuremap.setLimit(findParam.reportParam?.limit)
+        
+        return treasuremap.v3(treasuremap).getTreasureCoordinatesWithPrize()
+    }
+    
     protected async findTreasure(findParam: IFindingTreasure): Promise<TCoordinates[]> {
         const treasuremap = new TreasureMap();
         treasuremap.setPrize(this.prize);

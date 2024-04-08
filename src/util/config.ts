@@ -18,9 +18,9 @@ export const envKeys = (): EnvKeys => {
 
     return {
         PORT: Number(process.env.PORT) || 3000,
-        MYSQL_DB_HOST: process.env.LCL_MYSQL_DB_URL || '',
-        MYSQL_DB_USERNAME: process.env.LCL_MYSQL_DB_USERNAME || '',
-        MYSQL_DB_PASSWORD: process.env.LCL_MYSQL_DB_PASSWORD || '',
-        MYSQL_DB_NAME: process.env.LCL_MYSQL_DB_NAME || '',
+        MYSQL_DB_HOST: process.env.LCL_MYSQL_DB_URL || 'localhost',
+        MYSQL_DB_USERNAME: process.env.LCL_MYSQL_DB_USERNAME || 'root',
+        MYSQL_DB_PASSWORD: process.env.LCL_MYSQL_DB_PASSWORD || 'root',
+        MYSQL_DB_NAME: process.env.LCL_MYSQL_DB_NAME || 'kitra',
     }
 }
