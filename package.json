@@ -1,10 +1,11 @@
 {
   "name": "kitra",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Kitra is a game where users can collect treasures in a given latitude and longitude. Every treasure that is collected will have points based on the monetary value. A treasure may have more than one money value, it depends on the user’s luck. Kitra users may get the highest money from the treasure that has been collected.",
   "main": "index.js",
   "scripts": {
-    "seed": "ts-node ./src/migrations/migrate.ts && ts-node ./src/migrations/seed.ts",
+    "ddl": "ts-node ./src/migrations/migrate.ts && ts-node ./src/migrations/seed.ts",
+    "seed": "ts-node ./src/migrations/seed.ts",
     "dev": "ts-node-dev --poll src/server.ts",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/index.js",
